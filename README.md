@@ -1,7 +1,7 @@
 # That Damned History Test! - a Text Adventure
 
 <p align="center">
- <img src="HistoryTestF.png" width=140 alt="That Damned History Test">
+ <img src="HistoryTestFail.png" width=140 alt="That Damned History Test">
 </p>
 
 **Works on smartphones, tablets, and desktop devices**
