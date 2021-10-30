@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>That Damned History Test!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="UTF-8">
+  <meta name="description" content="You, your parents, and the history test you failed">
+  <meta name="og:description" content="You, your parents, and the history test you failed">
+  <meta name="twitter:description" content="You, your parents, and the history test you failed">
+  <meta name="author" content="Games by Tim">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <meta name="format-detection" content="telephone=no">
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:500,500i,800" rel="stylesheet">
+  <meta name="apple-mobile-web-app-title" content="History Test">
+  <link rel="apple-touch-icon" href="HistoryTestF.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta property="og:image" content="HistoryTestF.png">
+  <meta property="og:image:width" content="400" />
+  <meta property="og:image:height" content="400" />
+
+  <style>
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0 auto;
+      background-color: #505873;
+      width: 92%;
+      max-width: 850px;
+    }
+
+    main {
+      background-color: #f7f7f7;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+      margin: 20px 0;
+      padding: 10px 24px;
+      font-family: "raleway", sans-serif;
+      font-weight: 500;
+      font-size: 13pt;
+      border-radius: 8px;
+    }
+
+    header,
+    #endingCount,
+    footer,
+    noscript {
+      display: block;
+      text-align: center;
+    }
+
+    header p {
+      margin: 0 0 1em 0;
+    }
+
+    h1 {
+      font-size: 28pt;
+      color: #AD3939;
+      font-family: "arvo", sans-serif;
+      margin: 12px 0 6px 0;
+    }
+
+    #endingCount {
+      font-size: 16pt;
+      margin-bottom: 1.2em;
+      color: #2d5b8c;
+    }
+
+    footer {
+      font-size: 10pt;
+      margin-top: 50px;
+      margin-bottom: 1em;
+    }
+
+    div.toggle {
+      background-color: rgb(191, 97, 97);
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(191, 97, 97);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 800;
+      padding: 5px 5px 5px 7px;
+      margin: 1em 0 0 auto;
+      max-width: 98%;
+      line-height: 1.2;
+      border-radius: 7px 7px 0 0;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    div.toggle:hover {
+      background-color: rgb(153, 77, 77);
+    }
+
+    div.toggle:hover,
+    div.toggle:hover+div.module {
+      border-color: rgb(153, 77, 77);
+    }
+
+    div.toggleEven {
+      background-color: rgb(93, 152, 193);
+      border-color: rgb(93, 152, 193);
+    }
+
+    div.toggleEven:hover {
+      background-color: rgb(37, 124, 185)
+    }
+
+    div.toggleEven:hover,
+    div.toggleEven:hover+div.moduleEven {
+      border-color: rgb(37, 124, 185);
+    }
+
+    div.module {
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(191, 97, 97);
+      border-top: 0;
+      padding: 1em 5px 1.4em 7px;
+      background: #fff;
+      max-width: 98%;
+      margin: 0 0 0 auto;
+      line-height: 1.25;
+      display: none;
+      border-radius: 0 0 7px 7px;
+      transition: border-color 0.2s;
+    }
+
+    div.moduleEven {
+      background-color: #f7f7f7;
+      border-color: rgb(93, 152, 193);
+    }
+
+    section {
+      opacity: 0;
+    }
+
+    div.module p {
+      padding: 0 3px 0 1px;
+    }
+
+    div.module p:first-child {
+      margin-top: 0;
+    }
+
+    .theend {
+      font-weight: 800;
+      margin-bottom: 0;
+    }
+
+    #scrollToTopButton {
+      opacity: 0;
+      visibility: hidden;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      font-size: 27px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      outline: none;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      transition: opacity 250ms, background-color 250ms;
+    }
+
+    #scrollToTopButton:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    @media screen and (max-width: 660px) {
+      body {
+        width: 94%;
+      }
+
+      main {
+        padding: 8px 12px;
+        font-size: 11.5pt;
+        margin: 12px 0;
+      }
+
+      h1 {
+        font-size: 22pt;
+      }
+
+      #endingCount {
+        font-size: 12pt;
+      }
+
+      div.toggle {
+        padding: 3px 5px;
+      }
+
+      div.module {
+        padding: 1em 3px 1.4em 5px;
+      }
+
+      #scrollToTopButton {
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <main>
+
+    <noscript>
+      JavaScript is disabled. Please enable it to play this game.
+    </noscript>
+
+    <button id="scrollToTopButton" title="Scroll to top">^</button>
+
+    <header>
+      <h1>That Damned History Test!</h1>
+      <p>A Text Adventure</p>
+      <div id="endingCount"></div>
+    </header>
+
+    <section>
+
+      <div class="toggle" style="margin:auto;">Click here to begin.</div>
+      <div class="module" style="margin:auto;">
+        <p>You failed a History test. If your parents find out, they might get mad at you. What do you do?</p>
+        <div class="toggle">Show your parents your test.</div>
+        <div class="module">
+          <p>Your parents get mad at you and send you to your room for time out. Now what?</p>
+          <div class="toggle">Stay in time out.</div>
+          <div class="module">
+            <p>Soon, time out is over. Your parents apologize for their emotional lapse, but there's a catch.</p>
+            <p>"You need a History tutor," your dad says.</p>
+            <p>You respond:</p>
+            <div class="toggle">"Good idea!"</div>
+            <div class="module">
+              <p>And so, your dad gets a tutor, who shows up the next day. The tutor is friendly, but you seem to have a
+                hard time understanding what he says. Still, you persevere and end up with a B+ on the next History
+                test.</p>
+            </div>
+            <div class="toggle">"I don't think it's necessary."</div>
+            <div class="module">
+              <p>"Really?" your dad replies. "Tutors help a lot, you know."</p>
+              <div class="toggle">"I think I can handle things myself."</div>
+              <div class="module">
+                <p>Your dad thinks about your reasoning.</p>
+                <p>"You know, you're right," he confesses. "I overreacted about a single test."</p>
+                <p>"Just don't give up and do your best," your mom adds. "Then you will become a History superstar
+                  student."</p>
+                <p>To make a long story short, you follow your mom's advice, netting yourself an A on the next
+                  History test. Congrats, superstar!</p>
+
+              </div>
+              <div class="toggle">"How about get a video game with the money you would have spent?"</div>
+              <div class="module">
+                <p>"You know, that's a pretty good point." your dad winks. "Why waste hard earned money on boring
+                  academic stuff when we can have TONS of fun instead?"</p>
+                <p>And so, before your mom can protest, your dad bolts straight to the store and heads back with an
+                  assortment of video games randomly selected from the shelves. You and your dad, who seems to have
+                  completely forgotten about the History test, proceed to have an absolute blast binging through all
+                  these games. Your dopamine levels may have soared, but your History grade, not so much.</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="toggle">Escape time out through a window.</div>
+          <div class="module">
+            <p>You successfully escape without your parents knowing! Now that you're out, what do you do?</p>
+            <div class="toggle">Run away.</div>
+            <div class="module">
+              <p>You don't know where you're going, but you keep on running, and running.</p>
+              <p>Several minutes later, you catch your breath next to the grocery store. As you walk
+                around...wait, is that your mom inside the store?</p>
+              <div class="toggle">Get the hell outta here.</div>
+              <div class="module">
+                <p>Immediately, you make another run for it. Unfortunately, that's when you trip over the nearby Girl
+                  Scout cookie stand! Not only did you frighten yourself and a group of girls, your mom catches you
+                  red-handed, and you now owe $100 in broken cookie boxes.</p>
+
+              </div>
+              <div class="toggle">Confront your mom.</div>
+              <div class="module">
+                <p>Whelp, here goes nothing. You head into the grocery store, making your way towards your mom. She
+                  focuses so much on her shopping list for a moment, you find yourself standing directly behind her
+                  without her noticing.</p>
+                <p>Finally, your mom looks behind.</p>
+                <p>At first, she stares at you, eyes popped, jaw fully dropped. Then came the words.</p>
+                <p>"Color me impressed."</p>
+                <p>Wait, what?</p>
+                <p>"If only I KNEW you could sprint FIVE MILES that quickly! That, in my eyes, is something remarkable."
+                </p>
+                <p>Your mom drives you home, more cheery than usual. The next thing you know, you're signed up for your
+                  school's Cross Country team.</p>
+
+              </div>
+            </div>
+            <div class="toggle">Go to your friend's house.</div>
+            <div class="module">
+              <p>Your friend appears to be excited when you stop by his house.</p>
+              <p>"Come on in!" he says. "Let's play some violent video games!"</p>
+              <div class="toggle">"Sure thing, man!"</div>
+              <div class="module">
+                <p>"Booyah!" your friend cheers, powering on his game system.</p>
+                <p>You and your friend have a fun time playing multiplayer mode on a first-person shooter video game.
+                  But
+                  then...</p>
+                <p>"WHAT'S GOING ON?!" yells your friend's mom, frantically running to the video game room. "You know
+                  the family rules: NO inviting friends WITHOUT my permission! Your friend must GO!!"</p>
+                <p>"Sorry," your friend says to you.</p>
+                <div class="toggle">Leave your friend's house.</div>
+                <div class="module">
+                  <p>"I apologize," you respond, as you walk your way out of your friend's house.</p>
+                  <p>That's when you notice your dad's car directly in front of you. Your friend's mom must have called
+                    your parents.</p>
+                  <p>Following "the talk," you're only allowed to play EC-rated games for the next two weeks.</p>
+                </div>
+                <div class="toggle">Try to convince your friend's mom for you to stay.</div>
+                <div class="module">
+                  <p>Your friend's mom glares at you.</p>
+                  <p>"Hmmph, this had better be good!" she glowers.</p>
+                  <div class="toggle">"I really want to socialize with my friend."</div>
+                  <div class="module">
+                    <p>"Well if you want to socialize," your friend's mom remarks, "you can do it outside!!"</p>
+                    <p>You and your friend agree, leave the house and chat around the block.</p>
+                    <p>Carried away by the conversation, you and your friend unwittingly pass by your parents' house.
+                      Unfortunately, your dad's lounging by the front porch...</p>
+                    <p>"Alright, what were you talking about?" your dad angrily prods as he drags you back in. Then he
+                      suddenly grins. "Wait, actually: what AM I talking about?"</p>
+                    <p>For the next two weeks, your dad will only speak to you in Morse code.</p>
+                  </div>
+                  <div class="toggle">"We're studying for a History test."</div>
+                  <div class="module">
+                    <p>Your friend's mom points towards the TV. "Ok, then explain THIS!!" she sneers.</p>
+                    <p>"Well, you see, Mom," your friend jumps in, "this game's all about World War II. We're learning
+                      about all the artillery and strategies the troops dealt with back then!"</p>
+                    <p>Your friend's mom glances back and forth at the TV and you and your friend's grimaces.</p>
+                    <p>"Alright, I'll let this one slide," she sighs. "But just this once!"</p>
+                    <p>You and your friend resume playing for hours on end. Soon enough, both of you get tired, and
+                      you need to return home.</p>
+                    <p>"I'm taking you back!" your friend's mom states firmly. "You ain't walking in the dark!"</p>
+                    <p>That's when you remember: you're supposed to still be in time out! How would you explain suddenly
+                      appearing at the front door with your friend's mom?</p>
+                    <div class="toggle">Plead the fifth.</div>
+                    <div class="module">
+                      <p>Your friend's mom rings the doorbell. Your sleepy dad answers the door.</p>
+                      <p>Not a single word is said as you head back to bed. For the next several days, you don't hear
+                        anything from your parents regarding the History test or the time out.</p>
+                      <p>Don't ask, don't tell.</p>
+                    </div>
+                    <div class="toggle">Admit to everything.</div>
+                    <div class="module">
+                      <p>Your friend's mom rings the doorbell. Your sleepy dad answers the door.</p>
+                      <p>"I'm really sorry, dad!" you apologize. "I escaped your time out and went to my friend's house
+                        to play video games!"</p>
+                      <p>Your dad's befuddled at first, until suddenly, he awakens.</p>
+                      <p>"That's right, you ARE supposed to be in time out," he says. "And I'M supposed to give you a
+                        punishment!"</p>
+                      <p>Your punishment is to buy your dad his cup of coffee every day for the next two weeks.</p>
+                    </div>
+                  </div>
+                  <div class="toggle">"I promise I'll cook dinner for your family tonight."</div>
+                  <div class="module">
+                    <p>"Deal!" your friend's mom beams. She leaves the room, gleefully humming.</p>
+                    <p>"Dude, what the hell?" your friend exclaims. "Alright, I can't leave this to you alone!"</p>
+                    <p>For the next hour, you and your friend prepare a fried rice dinner. As you head to the dining
+                      table, you're shocked to find unexpected guests: your parents.</p>
+                    <p>"I just HAD to invite them so they can be proud of you!" your friend's mom comments.</p>
+                    <p>After the awkward dinner, your parents take you home with a strange grin on their faces. When you
+                      wake up the next day, you notice a thank you card from your parents right by your slightly-ajar
+                      window.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="toggle">"Nah, not in the mood today."</div>
+              <div class="module">
+                <p>"Fair enough," your friend responds. "Then do you just want to chat or something?"</p>
+                <div class="toggle">"Sure. That's why I came."</div>
+                <div class="module">
+                  <p>"Ok then," your friend says. "But we gotta whisper and hide. My mom has a rule that I cannot invite
+                    friends without her permission."</p>
+                  <p>And so, you and your friend hide in your friend's room, whispering a great conversation.
+                    Unfortunately, you hear footsteps.</p>
+                  <p>"Uh oh, that could be my mom. I'm busted!" your friend whispers to you.</p>
+                  <div class="toggle">Hide underneath your friend's bed.</div>
+                  <div class="module">
+                    <p>It wasn't easy, but you manage to cover the entirety of your body underneath your friend's bed.
+                    </p>
+                    <p>Your friend's mom opens the door.</p>
+                    <p>"What were all the noises in your room?" your friend's mom interrogates your friend.</p>
+                    <p>Before your friend can respond, you sneeze from the dust underneath the bed.</p>
+                    <p>Your friend gets grounded, and you're driven back to your parents. And to make matters worse, you
+                      inadvertently sneeze on your parents due to all that dust.</p>
+                    <p>Your punishment is that you have to wear an N95 mask at all times indoors for the next two
+                      weeks.</p>
+                  </div>
+                  <div class="toggle">Attempt to escape the room with your friend's window.</div>
+                  <div class="module">
+                    <p>Astute from your last window escape, you beeline for your friend's window.</p>
+                    <p>"No, no, no, stop!" your friend squirms. "Don't you remember we're on the second floor?"</p>
+                    <p>But your mind's set towards the mission, and you dive from the window you prodded open...</p>
+                    <p>• ~~~~ •</p>
+                    <p>Well, at least your History teacher signed your cast.</p>
+                  </div>
+                  <div class="toggle">Brace for impact.</div>
+                  <div class="module">
+                    <p>The footsteps grow louder, then fade away.</p>
+                    <p>"Phew, that was a close one. Thank goodness you stayed put!" your friend sighs in relief.</p>
+                    <p>The conversation continues, undisturbed. It finally ends, but now you have to get back home in
+                      your room at time out before your parents find out. What is your strategy?</p>
+                    <div class="toggle">Run home and wedge yourself through your room window.</div>
+                    <div class="module">
+                      <p>In the blink of an eye, you reach your parents' house. Good. Now you gotta get through that
+                        slightly-ajar window.</p>
+                      <p>On the middle of your climb in, your mom catches you red-handed as she's outside
+                        gardening...</p>
+                      <p>Your punishment is to plant a bunch of thorny roses right
+                        beside your window.</p>
+                    </div>
+                    <div class="toggle">Enter from the front when the coast looks clear.</div>
+                    <div class="module">
+                      <p>You hide in a bush nearby your parents' house for a few hours.</p>
+                      <p>Soon, you notice the car pulling out of the garage. The coast looks clear, you believe.</p>
+                      <p>So you head inside the house using the key underneath the doormat. Indeed, no one is home! You
+                        quickly head to your room and lock yourself in, resuming your time out session.</p>
+                      <p>Fifteen minutes later, your parents arrive back home. Your dad opens your room, seeing you in
+                        time out.</p>
+                      <p>"YOU were here all this time?!" gasps your dad. "Oh my goodness! Sorry for leaving you home!"
+                      </p>
+                      <p>To make up, your parents give you $50 to spend on whatever you like.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="toggle">"Nah, let's just stare at each other."</div>
+                <div class="module">
+                  <p>"Ok, you're acting weird," your friend says in worry. "What's really going on?"</p>
+                  <div class="toggle">"Fine. The truth is..."</div>
+                  <div class="module">
+                    <p>"So you failed the History test, got sent to time out, AND escaped time out just to see me?" your
+                      friend responds.</p>
+                    <p>Your friend is speechless for a moment.</p>
+                    <p>"First off, damn, dude! Second off, I failed the History test too."</p>
+                    <p>Your friend pulls out the History test from his backpack, revealing that he too received a big
+                      fat circled F.</p>
+                    <p>To make a long story short, you and your friend agree to be study partners for the next History
+                      test, to the joyous approval of both your parents and your friend's parents. It helped to have
+                      someone hold you accountable, though it was also easy to get sidetracked with your friend. Both of
+                      you end up with a B on the next History test.</p>
+                  </div>
+                  <div class="toggle">"No, I mean it. Let's stare!"</div>
+                  <div class="module">
+                    <p>"Yeah no," your friend says. "Come back when you head's thinking straight."</p>
+                    <p>Your friend shuts the door, and you're on your own. You stare out in the distance, until soon
+                      enough, you notice your dad stare at you.</p>
+                    <p>Your punishment is to stare at a white wall, aggravating your eye floaters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="toggle">Rip the test into shreds.</div>
+        <div class="module">Once you shred your test, your parents come up to you and ask, "How did
+          you do on your history test?" You respond:
+          <div class="toggle">"Bad. I failed it."</div>
+          <div class="module">
+            <p>"Aww, that's too bad," says your mom. "If I see your errors from the test, maybe I can help you improve
+              your grades."</p>
+            <p>But your test is shredded! You...</p>
+            <div class="toggle">Tell your mom that you shredded your test.</div>
+            <div class="module">
+              <p>"Really?" your mom frowns.</p>
+              <p>"Don't worry, I used to do that when I was little," your dad chimes in. "You're not alone."</p>
+              <p>"Tomorrow, can you get a copy of the test? I may still be able to help you," your mom suggests.</p>
+              <div class="toggle">"Ok then."</div>
+              <div class="module">
+                <p>When you agree, things go back to normal around your house.</p>
+                <p>The next day at History class, you ask your teacher for an extra copy of the test.</p>
+                <p>"Sorry, but I'm out of copies," your teacher replies.</p>
+                <p>Hmm...</p>
+                <div class="toggle">After school, inform your mom your teacher has no copies of the test.</div>
+                <div class="module">
+                  <p>After school, you tell your mom exactly what happened.</p>
+                  <p>"Aww man!" she groans.</p>
+                  <p>But then suddenly a lightbulb appears on top of you mom's head.</p>
+                  <p>"I've got a better idea," she beams.</p>
+                  <p>Your mom leaves the house in a sharp second. When she returns, she's loaded with historical
+                    documentary DVD's.</p>
+                  <p>You watch the movies on your laptop. Turns out they're engaging, thanks to the overdramatization of
+                    the actors.</p>
+                  <p>You get an A- on the next History test.</p>
+                </div>
+                <div class="toggle">Rage.</div>
+                <div class="module">
+                  <p>Teacher: >_></p>
+                  <p>You: ME WANT HISTORY TEST!!!</p>
+                  <p>Teacher: Um, can you please leave?</p>
+                  <p>You: ME WILL KEEP RAGIN' 'TIL ME GET HISTORY TEST!!!</p>
+                  <p>Teacher: Go to the office. I had enough of you!</p>
+                  <p>You: ME REFU...</p>
+                  <p>Teacher: <u>GET OUT!!!</u></p>
+                </div>
+              </div>
+              <div class="toggle">"Mom, you don't need to worry about this."</div>
+              <div class="module">
+                <p>"But I care," your mom responds. "I want your History grade to go up!"</p>
+                <div class="toggle">"I can handle things on my own, Mom."</div>
+                <div class="module">
+                  <p>Your mom's taken aback from your words, then regains composure.</p>
+                  <p>"You're right, and I'm sorry for stepping in your boundaries too much," your mom apologizes.
+                    "Promise me though that you will seek help."</p>
+                  <p>Your parents leave, and you're on your own.</p>
+                  <div class="toggle">Seek help.</div>
+                  <div class="module">
+                    <p>The next day, you reach out to your History teacher for help.</p>
+                    <p>"Hmmm, you know what," the teacher responds, "Let me make an extra credit opportunity on the spot
+                      to help you out!"</p>
+                    <p>Although you don't perform much better on the next History test, that extra credit opportunity
+                      would save your grade.</p>
+                  </div>
+                  <div class="toggle">Don't seek help.</div>
+                  <div class="module">
+                    <p>Because you don't seek help, you fail the next History test.</p>
+                    <p>Which means your GPA drops. Which means you don't get into college. Which means you lose your
+                      will to try. Which means you fall into chronic unemployment.
+                      Which means the person you would've had the best long-term relationship with swipes left on you.
+                    </p>
+                    <p>All because you didn't seek help on your History test.</p>
+                  </div>
+                </div>
+                <div class="toggle">"Goddammit, Mom! Stop ****ing up my life!"</div>
+                <div class="module">
+                  <p>...soap bar.</p>
+                </div>
+              </div>
+            </div>
+            <div class="toggle">Tell your mom that the History teacher lost your test.</div>
+            <div class="module">
+              <p>"Impossible!" your mom shouts. "I know your History teacher would not lose your test! I shall call the
+                teacher!"</p>
+              <p>You gulp as your mom yanks the telephone and dials some numbers. A conversation ensues. Then your mom
+                hangs up with an frowny look.</p>
+              <p>"Your History teacher said that she made sure to give everyone their test back!" your mom roars. "Did
+                you lie?"</p>
+              <div class="toggle">Tell your mom it was actually you who lost the test.</div>
+              <div class="module">
+                <p>"No, I don't buy that," your mom dismisses.</p>
+                <p>"Your mom's right," your dad replies. "You definitely deserve a thorough punishment!"</p>
+                <p>Your punishment, for the next two weeks, is that you have to cook your own food.</p>
+              </div>
+              <div class="toggle">Confess that you lied and prepare for punishment.</div>
+              <div class="module">
+                <p>"Thank you for confessing," your mom says.</p>
+                <p>"Now here's your punishment," your dad dictates.</p>
+                <p>Your punishment is to write "I will not lie like I just did a few minutes ago" one hundred and
+                  twenty-six times on the whiteboard.</p>
+              </div>
+            </div>
+          </div>
+          <div class="toggle">"Great. I got an A on it."</div>
+          <div class="module">
+            <p>"Nice job!" your dad responds.</p>
+            <p>"Let's see your test because I wanna see that A on top," your mom says.</p>
+            <p>Uh oh. You respond:</p>
+            <div class="toggle">"Well, I shredded my test."</div>
+            <div class="module">
+              <p>"Shredded your test? Why would you shred your test if you got an A on it?" your dad asks.</p>
+              <div class="toggle">"Actually, I failed the test."</div>
+              <div class="module">
+                <p>Your dad's smile instantly flips vertically.</p>
+                <p>"So you FOOLED us??" your dad roars. "Failing a test is one thing, but this I WON'T tolerate! Prepare
+                  for the BIGGEST, BADDEST punishment I've ever given ya!!"</p>
+                <div class="toggle">"Bring your worst, Dad!"</div>
+                <div class="module">
+                  <p>Your dad ponders over the biggest, baddest punishment.</p>
+                  <p>"Nah, that ain't bad enough. Nah, that'd legit get CPS on my case. Ah, screw it! I'll think of
+                    something later!"</p>
+                  <p>Luckily for you, your dad forgets to think of something later.</p>
+                </div>
+                <div class="toggle">Cry.</div>
+                <div class="module">
+                  <p>You burst into tears.</p>
+                  <p>"Ah shoot, I pushed our child to the brink," your dad stammers. "I've done a bad, bad thing!"</p>
+                  <p>"Don't worry," your mom chimes. "We can make up for this."</p>
+                  <p>You are then taken to the ice cream store, where you are allowed to get as much ice cream as you
+                    want.</p>
+                </div>
+              </div>
+              <div class="toggle">"Because I'm a weird person."</div>
+              <div class="module">
+                <p>"That's awkward," your dad replies.</p>
+                <p>"Who knew our child's such a weirdo?" your mom says back.</p>
+                <p>"Perhaps it's some sort of disorder?" your dad hyperventilates. "We need to bring a doctor, STAT!"
+                </p>
+                <p>A doctor?! Shoot. If you don't do anything right now, things can turn to the worse.</p>
+                <div class="toggle">Agree to see the doctor.</div>
+                <div class="module">
+                  <p>After a long drive, you and your parents arrive at the hospital. You wait and wait until finally,
+                    the doctor calls you in.</p>
+                  <p>"So what's wrong?" asks the doctor.</p>
+                  <p>"Our child got an A on a History test, then intentionally shredded it!" your dad replies.</p>
+                  <p>"We think our kid has some serious disorder," your mom responds.</p>
+                  <p>"I suppose we can run some mental acuity tests to diagnose your child," suggests the doctor.</p>
+                  <p>You are then taken to a special room where the doctor hands you a questionnaire as part of the
+                    mental acuity test.</p>
+                  <div class="toggle">Answer the questionnaire truthfully.</div>
+                  <div class="module">
+                    <p>The doctor concludes that you do not have a mental disorder.</p>
+                    <p>"Rather, your child lied about getting an A on that History test," the doctor communicates to
+                      your parents.</p>
+                    <p>Your parents gasp, angry and embarrassed that they wasted so much time only to find out you lied.
+                    </p>
+                    <p>Your punishment, to make up for that time, is to file their tax returns.</p>
+                  </div>
+                  <div class="toggle">Intentionally mess with the questionnaire.</div>
+                  <div class="module">
+                    <p>The doctor concludes that you do indeed have a mental disorder.</p>
+                    <p>"I'm afraid your child's mental state is too unstable to function in our normal society," the
+                      doctor communicates to your parents. "I have no choice but to check your child into the psych
+                      ward."</p>
+                    <p>Your parents protest as the medical assistants drag you away, but neither you nor your parents
+                      have a say in the matter. Even your dad, known for his thick skin, sheds a tear.</p>
+                    <p>As for you, your life's about to completely change.</p>
+                  </div>
+                </div>
+                <div class="toggle">Quickly confess that you failed the test.</div>
+                <div class="module">
+                  <p>Your parents sigh in relief, then seethe in anger.</p>
+                  <p>"Look, I'm ecstatic we don't need to go to the doctor, but goddammit you rose my blood pressure
+                    majorly!" your dad shouts. "YOU WILL PAY FOR THIS!!"</p>
+                  <p>Your punishment is that for the next two weeks, your parents will wear the Squid Game costume in
+                    the house.</p>
+                </div>
+                <div class="toggle">Run away.</div>
+                <div class="module">
+                  <p>Immediately, you burst out the door and start running.</p>
+                  <p>You don't know where you're going, but you keep on running, and running.</p>
+                  <p>Several minutes later, you find yourself inside a dense forest. You're lost!</p>
+                  <div class="toggle">Keep running.</div>
+                  <div class="module">
+                    <p>You eventually emerge from the dense forest, finding yourself next to a giant geyser at a
+                      national park.</p>
+                    <p>The good news: park rangers spot you before you hurt yourself. The bad news: you're sentenced to
+                      seven days in jail for running in a restricted area.</p>
+                  </div>
+                  <div class="toggle">Yell for help.</div>
+                  <div class="module">
+                    <p>Your plea for help worked! Someone in a private helicopter spots you and flies you back to home
+                      and your parents safely.</p>
+                    <p>Your mom's relieved to see you again, but your dad's not having it.</p>
+                    <p>"Not only did you worry us sick, you made me jealous!" your dad hisses. "I wish I got to
+                      experience a private jet!!"</p>
+                    <p>Your punishment is to buy Microsoft Flight Simulator for your dad.</p>
+                  </div>
+                  <div class="toggle">Make camp.</div>
+                  <div class="module">
+                    <p>Whelp, you made it this far to dodge the wrath of your parents. Might as well make the most of
+                      it, you suppose.</p>
+                    <p>You find an open area, build a safe campfire, and go to sleep.</p>
+                    <p>• ~~~~ •</p>
+                    <p>When you wake up, you find yourself back at home on your bed.</p>
+                    <p>"Thank you so much for finding our lost child," you overhear your mom say to someone. "As
+                      promised, here's your $1,000 reward."</p>
+                    <p>You quickly notice that to fund the $1,000, your parents sold all your video games.</p>
+                  </div>
+                </div>
+                <div class="toggle">Randomly eat the nearest object in front of you.</div>
+                <div class="module">
+                  <p>You start chewing on a box of tissues.</p>
+                  <p>"Ok, that confirms it," your mom says, "our child IS a grade-A weirdo, no pun intended!"</p>
+                  <p>"I DON'T WANNA BE IN THIS CHOICE ARC ANYMORE!!!" your dad screams, blurting four-letter words as he
+                    scrams out the house.</p>
+                  <p>Your mom follows suit, and you're home alone. Later that night, a pair of burglars show up...</p>
+                </div>
+              </div>
+            </div>
+            <div class="toggle">"You don't need to see the A if you already know I got it, Mom."</div>
+            <div class="module">
+              <p>"Well," your mom clarifies, "I may think you got an A on the test, but I didn't actually see that A.
+                Thinking and seeing are different senses, you know. Now show me that test."</p>
+              <p>Looks like you got owned.</p>
+              <div class="toggle">"Fine, I confess. I failed the test and ripped it into shreds."</div>
+              <div class="module">
+                <p>Your parents suddenly become confused.</p>
+                <p>"Our kid was trying to lie? That can't be true," your dad says.</p>
+                <p>"Yeah, I'm pretty sure we're being played," your mom responds. "Our child DEFINITELY got an A on the
+                  test and just wants to wait for that right moment to show us."</p>
+                <p>Hmm...should you play along?</p>
+                <div class="toggle">"I'm not lying! I really failed the test!"</div>
+                <div class="module">
+                  <p>"Nope, don't wanna hear it!" your dad shouts. "Even if you did fail it, I'd rather stay ignorant
+                    and believe otherwise!"</p>
+                  <p>"Yeah!" your mom affirms.</p>
+                  <p>And so you have no choice but to let your parents stay in disbelief, for better or for worse.</p>
+                </div>
+                <div class="toggle">"Aw, Mom, you figured out my plan!"</div>
+                <div class="module">
+                  <p>"I KNEW IT!!" your mom shouts, dancing with glee. "Alright, I'll be waiting for that moment you'll
+                    show us your test!"</p>
+                  <p>From then on, your mom nags you daily about your test, and you're stuck in a loop responding that
+                    it is still not the right moment...yet.</p>
+                </div>
+              </div>
+              <div class="toggle">"You know, you can actually see the test if you imagine it in your head."</div>
+              <div class="module">
+                <p>Your mom attempts to do as you say, but unfortunately, it doesn't work.</p>
+                <p>"I can't see the test in my head," she says. "Can I ACTUALLY see the test?"</p>
+                <div class="toggle">"You can't 'cuz I failed it and it's all ripped up!"</div>
+                <div class="module">
+                  <p>GRRRR goes your mom.</p>
+                  <p>HRRPH goes your dad.</p>
+                  <p>UH OH goes yourself.</p>
+                  <p>BYE BYE goes your allowance.</p>
+                </div>
+                <div class="toggle">"You're not trying hard enough. Try again!"</div>
+                <div class="module">
+                  <p>"Then how about you try?" your mom articulates, "By your logic, you can actually see what's on your
+                    computer screen if you imagine it in your head!"</p>
+                  <p>For the next two weeks, you're not allowed to turn on your computer monitor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy;2011-2021 <a href="https://www.gamesbytim.com/" target="_blank" rel="noopener">Games by Tim</a>
+    </footer>
+  </main>
+
+  <script src="jquery-3.6.0.min.js"></script>
+  <script>
+    var classname = $("div.toggle");
+    var totalEndings = 0;
+    var seenEndings = [];
+    var toggler = function () {
+      if ($(this).hasClass('open')) {
+        $(this).next().slideUp(250, "swing");
+        $(this).removeClass('open');
+      }
+      else {
+        $(this).next().slideDown(250, "swing");
+        $(this).addClass('open');
+        if ($(this).next().children('.toggle').length === 0) {
+          if (seenEndings.indexOf($(this).next().attr('id')) === -1) {
+            seenEndings.push($(this).next().attr('id'));
+            displayEndingCount();
+            $(this).next().children('.theend').append(" (" + seenEndings.length + "/" + totalEndings + ")");
+          }
+        }
+      }
+    };
+    $(document).ready(function () {
+      classname.click(toggler);
+      for (var i = 0; i < classname.length; i++) {
+        if (i != 0 && !classname.eq(i).parent().prev().hasClass("toggleEven")) {
+          classname.eq(i).addClass("toggleEven");
+          classname.eq(i).next().addClass("moduleEven");
+        }
+        if (classname.eq(i).next().children('.toggle').length === 0) {
+          totalEndings += 1;
+          classname.eq(i).next().attr('id', totalEndings);
+          classname.eq(i).next().append("<p class='theend'>The end.</p>");
+        }
+      }
+      $("section").fadeTo(250, 1);
+      displayEndingCount();
+      window.onscroll = function () { scrollToTop() };
+    });
+    $('#scrollToTopButton').click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 250);
+      return false;
+    });
+    function displayEndingCount() {
+      if (seenEndings.length < totalEndings) {
+        document.getElementById("endingCount").innerHTML = "You've seen " + seenEndings.length + "/" + totalEndings + " endings";
+      } else {
+        document.getElementById("endingCount").innerHTML = "<strong>&#9733; You've seen all " + totalEndings + " endings!!! &#9733;</strong>";
+      }
+    }
+    function scrollToTop() {
+      var theButton = document.getElementById("scrollToTopButton");
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        theButton.style.visibility = "visible";
+        theButton.style.opacity = 1;
+      } else {
+        theButton.style.visibility = "hidden";
+        theButton.style.opacity = 0;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
